@@ -129,13 +129,12 @@ module Webex
 
                 raise Exception.new("Markdown is not supported because it causes the bot to crash") if message["markdown"]?
 
-                if attachments = message["attachments"]?
+                if attachments = message["attachments"]? || [] of Models::Attachment
                   self.messages.create(room_id.to_s, parent_id.to_s, to_person_id.to_s, to_person_email.to_s, text.to_s, markdown.to_s, nil, attachments.as(Array(Models::Attachment)))
                 else
                   self.messages.create(room_id.to_s, parent_id.to_s, to_person_id.to_s, to_person_email.to_s, text.to_s, markdown.to_s, nil, [] of Models::Attachment)
                 end
               else
-
               end
             end
           else

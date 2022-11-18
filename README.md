@@ -28,6 +28,8 @@ Configure the client:
 
 require "webex"
 
+Log.setup(:debug)
+
 access_token = "ACCESS_TOKEN"
 
 session = Webex::Session.new(access_token: access_token)

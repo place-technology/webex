@@ -12,8 +12,6 @@ module WebexWeb
 
         device = client.device
 
-        pp device
-
         socket = HTTP::WebSocket.new(URI.parse(device.websocket_url))
 
         spawn do

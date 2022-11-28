@@ -49,9 +49,6 @@ module Webex
 
           return response
         rescue exception : Exceptions::StatusCode
-          pp response
-          pp response.body
-
           Log.error(exception: exception) { "Invalid status code has been detected" }
 
           raise exception

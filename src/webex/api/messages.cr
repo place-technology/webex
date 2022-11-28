@@ -24,7 +24,7 @@ module Webex
         end
       end
 
-      def create(room_id : String = nil, parent_id : String = nil, to_person_id : String = nil, to_person_email : String = nil, text : String = nil, markdown : String = nil, files : Array(String)? = nil, attachments : Array(Models::Attachment)? = nil) : Models::Message
+      def create(room_id : String? = nil, parent_id : String? = nil, to_person_id : String? = nil, to_person_email : String? = nil, text : String? = nil, markdown : String? = nil, files : Array(String)? = nil, attachments : Array(Models::Attachment)? = nil) : Models::Message
         response = @session.post([Constants::MESSAGES_ENDPOINT, "/"].join(""), raw: Utils.hash_from_items_with_values("roomId": room_id, "parentId": parent_id, "toPersonId": to_person_id, "toPersonEmail": to_person_email, "text": text, "markdown": markdown, "files": files, "attachments": attachments).to_json)
         Models::Message.from_json(response.body)
       end

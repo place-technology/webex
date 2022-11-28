@@ -1,5 +1,5 @@
 name: webex
-version: 0.9.0
+version: 0.1.0
 
 authors:
   - Giorgi Kavrelishvili <giorgi.kavrelishvili@pm.me>
@@ -7,6 +7,9 @@ authors:
 dependencies:
   halite:
     github: icyleaf/halite
+
+  grip:
+    github: grip-framework/grip
 
 development_dependencies:
   ameba:
